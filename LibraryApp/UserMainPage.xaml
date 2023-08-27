@@ -1,0 +1,98 @@
+﻿<Page x:Class="UI.UserMainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UI"
+      mc:Ignorable="d" 
+      Title="User Main Page">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="images/mainpage-background.jpg"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock x:Name="header" Grid.ColumnSpan="3" Text="Welcome Back " TextAlignment="Center" FontWeight="Bold" Foreground="White" Background="DarkRed" VerticalAlignment="Top" HorizontalAlignment="Stretch" FontSize="16" Padding="4"/>
+
+        <Rectangle x:Name="buttonsBackground" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="300" Stroke="Black" Width="150" Fill="#66000000" Margin="0,200,0,0"/>
+        <StackPanel Orientation="Vertical">
+            <Button x:Name="rentItemButton" Grid.Column="0" Content="Rent Item" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="120" Background="DarkRed" FontSize="14" FontWeight="Bold" Margin="15,200,0,10" Click="RentItemButton_Click"/>
+            <Button x:Name="returnItemmButton" Grid.Column="0" Content="Return Item" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="120" Background="DarkRed" FontSize="14" FontWeight="Bold" Margin="15,0,0,10" Click="ReturnItemButton_Click"/>
+            <Button x:Name="backToLoginButton" Grid.Column="0" Content="Back To Login" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="120" Background="DarkRed" FontSize="14" FontWeight="Bold" Margin="15,0,0,0" Click="BackToLoginButton_Click" />
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Column="1">
+            <local:BasicMainPage x:Name="basicMainPage" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center"/>
+            <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" MinHeight="30" MinWidth="550" Margin="0,0,250,0">
+                <Label VerticalAlignment="Top" FontSize="16" Background="BLack" Foreground="White" Width="550" Height="30" HorizontalContentAlignment="Center">
+                    <TextBlock>
+                <Underline>
+                    Rent List:
+                </Underline>
+                    </TextBlock>
+                </Label>
+
+                <DataGrid Name="rentDataGrid" xmlns:sys="clr-namespace:System;assembly=mscorlib" MinHeight="150" MinWidth="550" EnableRowVirtualization="False" EnableColumnVirtualization="False" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow" CanUserResizeColumns="False" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" AutoGenerateColumns="False" Width="550" Height="150" Background="#802F00B2">
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="Black"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="FontSize" Value="14"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Background" Value="#802F00B2"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="BorderBrush" Value="White"/>
+                        </Style>
+                    </DataGrid.RowStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Renter Name" Binding="{Binding Renter}" Width="SizeToCells" MinWidth="100"/>
+                        <DataGridTextColumn Header="Type" Binding="{Binding ItemType}" Width="SizeToCells" MinWidth="50"/>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="SizeToCells" MinWidth="50"/>
+                        <DataGridTextColumn Header="Genre" Binding="{Binding Genre}" Width="SizeToCells" MinWidth="50"/>
+                        <DataGridTextColumn Header="Publisher" Binding="{Binding Publisher}" Width="SizeToCells" MinWidth="80"/>
+                        <DataGridTextColumn Header="Publish Date" Binding="{Binding PublishDate}" Width="SizeToCells" MinWidth="100"/>
+                        <DataGridTextColumn Header="Rent Date" Binding="{Binding RentDate}" Width="SizeToCells" MinWidth="100"/>
+                        <DataGridTextColumn Header="Return Date" Binding="{Binding ReturnDate}" Width="SizeToCells" MinWidth="100"/>
+
+                        <DataGridTemplateColumn Header="Notes" Width="SizeToCells" MinWidth="50">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Notes}">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Foreground" Value="White"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding ReturnDate}" Value="{x:Static sys:DateTime.Now}">
+                                                        <Setter Property="Foreground" Value="Red"/>
+                                                        <Setter Property="Text" Value="item is late on return"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </StackPanel>
+
+
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="3" Text="© 2023 Library Inc." TextAlignment="Center" FontWeight="Bold" Foreground="White" Background="DarkRed" VerticalAlignment="Bottom" FontSize="12" Padding="4" />
+    </Grid>
+</Page>

@@ -1,0 +1,78 @@
+﻿<UserControl x:Class="UI.BasicMainPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:UI"
+             mc:Ignorable="d">
+    <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" MinWidth="550"/>
+                <ColumnDefinition Width="*" MinWidth="250"/>
+            </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Orientation="Vertical">
+            <StackPanel Grid.Column="0" Margin="0,40,0,0" Orientation="Vertical" VerticalAlignment="Center">
+                <Label Content="Search By:" FontSize="16" Background="BLack" Foreground="White" MinWidth="550" MinHeight="30" HorizontalContentAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" Background="Black" MinWidth="550" MinHeight="50">
+                <TextBox x:Name="type" Text="Type" Width="110" Height="25" VerticalAlignment="Center" FontSize="14" Margin="5,0,5,0" Foreground="#CA000000" TextChanged="Type_TextChanged" GotFocus="Type_GotFocus" LostFocus="Type_LostFocus"/>
+                <TextBox x:Name="name" Text="Name" Width="110" Height="25" VerticalAlignment="Center" FontSize="14" Margin="5,0,5,0" Foreground="#CC000000" TextChanged="Name_TextChanged" GotFocus="Name_GotFocus" LostFocus="Name_LostFocus"/>
+                <TextBox x:Name="genre" Text="Genre" Width="110" Height="25" VerticalAlignment="Center" FontSize="14" Margin="5,0,5,0" Foreground="#CC000000" TextChanged="Genre_TextChanged" GotFocus="Genre_GotFocus" LostFocus="Genre_LostFocus"/>
+                <TextBox x:Name="author" Text="Author" Width="110" Height="25" VerticalAlignment="Center" FontSize="14" Margin="5,0,5,0" Foreground="#CC000000" TextChanged="Author_TextChanged" GotFocus="Author_GotFocus" LostFocus="Author_LostFocus"/>
+                <TextBox x:Name="publisher" Text="Publisher" Width="110" Height="25" VerticalAlignment="Center" FontSize="14" Margin="5,0,5,0" Foreground="#CD000000" TextChanged="Publisher_TextChanged" GotFocus="Publisher_GotFocus" LostFocus="Publisher_LostFocus"/>
+                </StackPanel>
+            </StackPanel>
+        <StackPanel Grid.Column="0" Margin="0,40,0,40" Orientation="Vertical" VerticalAlignment="Top" MinWidth="600" MinHeight="30">
+            <Label FontSize="16" Background="BLack" Foreground="White" HorizontalContentAlignment="Center">
+                <TextBlock>
+                <Underline>
+                    Library List:
+                </Underline>
+                </TextBlock>
+            </Label>
+            <DataGrid x:Name="itemDataGrid" EnableRowVirtualization="False" EnableColumnVirtualization="False" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow" CanUserResizeColumns="False" DataContextChanged="ItemDataGrid_DataContextChanged" AutoGenerateColumns="False"  Width="600" Height="200" Background="#802F00B2">
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Background" Value="Black"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="FontSize" Value="14"/>
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+                <DataGrid.RowStyle>
+                    <Style TargetType="{x:Type DataGridRow}">
+                        <Setter Property="Background" Value="#802F00B2"/>
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="BorderBrush" Value="White"/>
+                    </Style>
+                </DataGrid.RowStyle>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Style" Binding="{Binding ItemType}" Width="SizeToCells" MinWidth="50"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="SizeToCells" MinWidth="50"/>
+                    <DataGridTextColumn Header="Genre" Binding="{Binding Genre}" Width="SizeToCells" MinWidth="50"/>
+                    <DataGridTextColumn Header="Publisher" Binding="{Binding Publisher}" Width="SizeToCells" MinWidth="80"/>
+                    <DataGridTextColumn Header="Current Price" Binding="{Binding CurrentPrice}" Width="SizeToCells" MinWidth="100"/>
+                    <DataGridTextColumn Header="Regular Price" Binding="{Binding Price}" Width="SizeToCells" MinWidth="100"/>
+                    <DataGridTextColumn Header="Discount Price" Binding="{Binding DiscountPrice}" Width="SizeToCells" MinWidth="100"/>
+                    <DataGridTextColumn Header="Publish Date" Binding="{Binding PublishDate}" Width="SizeToCells" MinWidth="100"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Panel.ZIndex="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Background="#66000000">
+                <StackPanel Orientation="Vertical" Grid.Column="2" VerticalAlignment="Top" Background="#66000000" Height="50">
+                    <Label x:Name="libraryCountLabel" Content="Library Count" HorizontalContentAlignment="Center" Height="30" FontSize="14" Foreground="White" FontWeight="Bold"/>
+                    <TextBlock x:Name="libraryCount" Text="{Binding Count}" TextAlignment="Center" Height="20" FontSize="14" Foreground="White" FontWeight="Bold"/>
+                </StackPanel>
+
+                <Border BorderThickness="0.5" BorderBrush="White" Height="50"/>
+
+                <StackPanel Orientation="Vertical" Grid.Column="1" VerticalAlignment="Top" Background="#66000000" Height="50">
+                    <Label x:Name="rentedItemsCountLabel" Content="Rented Item Count" HorizontalContentAlignment="Center" Height="30" FontSize="14" Foreground="White" FontWeight="Bold"/>
+                    <TextBlock x:Name="rentedItemsCount" Text="{Binding TotalRentedItemsCount}" TextAlignment="Center" Height="20" FontSize="14" Foreground="White" FontWeight="Bold"/>
+                </StackPanel>
+            </StackPanel>
+
+        </Grid>
+</UserControl>

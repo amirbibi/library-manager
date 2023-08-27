@@ -1,0 +1,67 @@
+﻿<Page x:Class="UI.EditItemPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UI"
+      mc:Ignorable="d" 
+      Title="EditItemPage"
+      Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="images/mainpage-background.jpg"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="header" Grid.Row="0" Grid.ColumnSpan="2" Text="Welcome Back " TextAlignment="Center" FontWeight="Bold" Foreground="White" Background="DarkRed" VerticalAlignment="Top" HorizontalAlignment="Stretch" FontSize="16" Padding="4"/>
+
+        <StackPanel Orientation="Vertical" Grid.Row="1" Background="#66000000" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <Button x:Name="backToLoginButton" Content="Back To Library" HorizontalAlignment="Center" Height="30" Width="Auto" MinWidth="120" Background="DarkRed" FontSize="14" FontWeight="Bold" Click="BackToLibraryButton_Click"/>
+            <StackPanel Orientation="Horizontal" Margin="0,40,0,5">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Name" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14"/>
+                    <TextBox x:Name="nameTextBox" Width="110" Height="25" VerticalAlignment="Center" FontSize="14" Margin="5,0,5,0" Foreground="White" Background="#CCE65757"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Genre" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14"/>
+                    <TextBox x:Name="genreTextBox" Width="110" Height="25" VerticalAlignment="Center" FontSize="14" Margin="5,0,5,0" Foreground="White" Background="#CCE65757"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Publisher" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14"/>
+                    <TextBox x:Name="publisherTextBox" Width="110" Height="25" VerticalAlignment="Center" FontSize="14" Margin="5,0,5,0" Foreground="White" Background="#CCE65757"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Price" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14"/>
+                    <TextBox x:Name="priceTextBox" Width="110" Height="25" VerticalAlignment="Center" FontSize="14" Margin="5,0,5,0" Foreground="White" Background="#CCE65757"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Discount Price %" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14"/>
+                    <TextBox x:Name="discountPriceTextBox" Width="110" Height="25" VerticalAlignment="Center" FontSize="14" Margin="5,0,5,0" Foreground="White" Background="#CCE65757"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Author" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14"/>
+                    <TextBox x:Name="authorTextBox" Width="110" Height="25" VerticalAlignment="Center" FontSize="14" Margin="5,0,5,0" Foreground="White" Background="#CCE65757"/>
+                </StackPanel>
+            </StackPanel>
+
+            <Label Content="Publish Date" HorizontalContentAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="14"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,40">
+                <TextBox x:Name="dayTextBox" Width="110" Height="25" VerticalAlignment="Center" FontSize="14" Margin="5,0,5,0" Foreground="White" Background="#CCE65757"/>
+                <TextBox x:Name="monthTextBox" Width="110" Height="25" VerticalAlignment="Center" FontSize="14" Margin="5,0,5,0" Foreground="White" Background="#CCE65757"/>
+                <TextBox x:Name="yearTextBox" Width="110" Height="25" VerticalAlignment="Center" FontSize="14" Margin="5,0,5,0" Foreground="White" Background="#CCE65757"/>
+            </StackPanel>
+
+
+            <Button x:Name="editItemButton" Content="Edit Item" HorizontalAlignment="Center" Height="30" Width="Auto" MinWidth="120" Background="DarkRed" FontSize="14" FontWeight="Bold" Padding="10, 0, 10, 0" Click="EditItemButton_Click"/>
+        </StackPanel>
+
+
+        <TextBlock Grid.Row="2" Grid.ColumnSpan="3" Text="© 2023 Library Inc." TextAlignment="Center" FontWeight="Bold" Foreground="White" Background="DarkRed" VerticalAlignment="Bottom" FontSize="12" Padding="4"/>
+    </Grid>
+</Page>

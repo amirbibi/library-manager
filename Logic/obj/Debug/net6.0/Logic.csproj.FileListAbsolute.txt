@@ -1,0 +1,11 @@
+C:\Users\amirb\source\repos\@Sela\Advanced Programming\LibraryApp\Logic\bin\Debug\net6.0\Logic.deps.json
+C:\Users\amirb\source\repos\@Sela\Advanced Programming\LibraryApp\Logic\bin\Debug\net6.0\Logic.dll
+C:\Users\amirb\source\repos\@Sela\Advanced Programming\LibraryApp\Logic\bin\Debug\net6.0\Logic.pdb
+C:\Users\amirb\source\repos\@Sela\Advanced Programming\LibraryApp\Logic\obj\Debug\net6.0\Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\amirb\source\repos\@Sela\Advanced Programming\LibraryApp\Logic\obj\Debug\net6.0\Logic.AssemblyInfoInputs.cache
+C:\Users\amirb\source\repos\@Sela\Advanced Programming\LibraryApp\Logic\obj\Debug\net6.0\Logic.AssemblyInfo.cs
+C:\Users\amirb\source\repos\@Sela\Advanced Programming\LibraryApp\Logic\obj\Debug\net6.0\Logic.csproj.CoreCompileInputs.cache
+C:\Users\amirb\source\repos\@Sela\Advanced Programming\LibraryApp\Logic\obj\Debug\net6.0\Logic.dll
+C:\Users\amirb\source\repos\@Sela\Advanced Programming\LibraryApp\Logic\obj\Debug\net6.0\refint\Logic.dll
+C:\Users\amirb\source\repos\@Sela\Advanced Programming\LibraryApp\Logic\obj\Debug\net6.0\Logic.pdb
+C:\Users\amirb\source\repos\@Sela\Advanced Programming\LibraryApp\Logic\obj\Debug\net6.0\ref\Logic.dll
